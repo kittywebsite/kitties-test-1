@@ -8,12 +8,45 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>kitties club</h1>
-  <form id="messageForm">
-    <input id="username" type="text" placeholder="kitty identity" autocomplete="off" required>
-    <textarea id="message" placeholder="meow meow meow..." required></textarea>
-    <button type="submit">send</button>
-  </form>
+  <main>
+    <section>
+      <header>
+        <h1>kitties club</h1>
+      </header>
+      <form id="messageForm">
+        <input id="username" type="text" placeholder="kitty identity" autocomplete="off" required>
+        <textarea id="message" placeholder="meow meow meow..." required></textarea>
+        <button type="submit">send</button>
+      </form>
+    </section>
+  <button id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+
+    <aside id="sidebar" class="sidebar">
+      <h2>Sidebar</h2>
+      <button>friends list</button>
+      <button>chat settings</button>
+      <button>other information</button>
+      <button>log in</button>
+      <button>create new account</button>
+    </aside>
+  </main>
+  
+  <template id="message-template">
+    <div class="message">
+      <div class="username"></div>
+      <div class="text"></div>
+      <div style="display: flex; align-items: center;
+      justify-content: space-between">
+        <div class="date"></div>
+        <button class="copy-button" 
+        style="margin-left: auto;">Copy</button>
+        <button class="respond-button" 
+        style="margin-left: 10px;" 
+        onmousedown="event.preventDefault()">Respond</button>
+      </div>
+    </div>
+  </template>
+  
   <div id="messages"></div>
   <script type="module" src="script.js"></script>
 </body>
