@@ -7,6 +7,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const form = document.getElementById("messageForm");
 const messagesDiv = document.getElementById("messages");
 
+
 async function loadMessages() {
   const { data, error } = await supabase        // get all rows (messages) sorted by date/time
     .from("messages")
@@ -22,15 +23,9 @@ async function loadMessages() {
   messagesDiv.innerHTML = "";      // clear messages div in page
 
   for (const message of data) {
-    const div = document.createElement("div");      // create a div per message
-    div.className = "message";
-
-    div.innerHTML = `
-      <div class="username"></div>
-      <div class="text"></div>
-      <div class="date"></div>
-      <button class="copy-button">copy</button>
-    `;
+    // create a div per message
+    const template = document.querySelector("#message-template");
+    const div = template.content.cloneNode(true);  
 
     div.querySelector(".username").textContent = message.username;        // populate div
     div.querySelector(".text").textContent = message.message;
@@ -39,6 +34,11 @@ async function loadMessages() {
 
     div.querySelector(".copy-button").onclick = () =>
       navigator.clipboard.writeText(message.message);
+    div.querySelector(".respond-button").onclick = () => {
+      messageDiv.value = "@" + message.username + " ";
+      messageDiv.focus();
+      messageDiv.setSelectionRange(messageDiv.value.length, messageDiv.value.length);
+    };
 
     messagesDiv.appendChild(div);
   }
@@ -73,3 +73,17 @@ form.addEventListener("submit", async (event) => {
 loadMessages();
 
 
+const sidebar = document.getElementById("sidebar");
+const sidebarToggle = document.getElementById("sidebar-toggle");
+
+sidebarToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+  sidebarToggle.classList.toggle("open");
+
+  // Change the button icon
+  if (sidebar.classList.contains("open")) {
+    sidebarToggle.textContent = "×";
+  } else {
+    sidebarToggle.textContent = "☰";
+  }
+});
