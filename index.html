@@ -18,6 +18,7 @@
         <textarea id="message" placeholder="meow meow meow..." required></textarea>
         <button type="submit">send</button>
       </form>
+      <div id="messages"></div>
     </section>
     
     <button id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
@@ -40,15 +41,14 @@
       justify-content: space-between">
         <div class="date"></div>
         <button class="copy-button" 
-        style="margin-left: auto;">Copy</button>
+        style="margin-left: auto;">copy</button>
         <button class="respond-button" 
         style="margin-left: 10px;" 
-        onmousedown="event.preventDefault()">Respond</button>
+        onmousedown="event.preventDefault()">respond</button>
       </div>
     </div>
   </template>
-  
-  <div id="messages"></div>
+
   <script type="module" src="script.js"></script>
 </body>
 </html>
