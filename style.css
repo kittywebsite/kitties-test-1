@@ -155,7 +155,7 @@ button:active, .copy-button:active {
   box-sizing: border-box;
   padding: 30px 25px 25px;
   z-index: 1000;
-  color: #183a2a;
+  /* color: #183a2a; */
   background: linear-gradient(135deg,#e6f4ec 0%,#b6d8c2 55%,#78aa8a 100%);
   border-left: 2px solid #9abbab;
   box-shadow: -8px 0 25px rgba(30, 80, 50, 0.2);
@@ -175,13 +175,13 @@ button:active, .copy-button:active {
   background: rgba(255, 255, 255, 0.65);
   border: 1px solid rgba(40, 96, 60, 0.1);
   border-radius: 8px;
-  color: #28603CD0;
+  /* color: #28603CD0; */
   cursor: url("cursors/Link Select.cur"), auto;
 }
 
 .sidebar h2 {
   margin: 0;
-  color: #28603c;
+  /* color: #28603c; */
   line-height: 45px;
 }
 
