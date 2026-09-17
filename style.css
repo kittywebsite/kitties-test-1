@@ -2,6 +2,10 @@ html, body {
   cursor: url("cursors/Normal Select.cur"), auto;
 }
 
+main {
+  position: relative;
+}
+
 body {
   font-family: Arial, sans-serif;
   min-height: 100vh;
@@ -15,13 +19,7 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   background-attachment: fixed;
   background: linear-gradient(135deg, #ffe6f0 0%, #f7b6d2 45%, #df78aa 100%);
-  /* background-size: 400% 100%;
-  animation: gradient1 30s ease infinite; */ 
 }
-/* @keyframes gradient1 {
-  0% {background-position: 0% 50%;}
-  100% {background-position: 100% 50%;}
-} */
 
 /* Inputs */
 input, textarea {
@@ -84,13 +82,7 @@ button {
   cursor: url("cursors/Link Select.cur"), auto;
 }
 
-.copy-button {
-  position: absolute;
-  right: 20px !important;
-  top: 0;
-  bottom: 0;
-  margin-block: auto;
-  height: fit-content;
+.copy-button, .respond-button {
   width: auto;
   padding: 6px 10px;
   background: rgba(255, 255, 255, 0.1);
@@ -132,6 +124,65 @@ button:active, .copy-button:active {
     0 2px 0 #a82b5e,
     0 4px 8px rgba(130, 30, 80, 0.2);
   cursor: url("cursors/Working in Background.cur"), auto;
+}
+
+/* Sidebar */
+#sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  z-index: 1001;
+  justify-content: center;
+  font-size: 22px;
+  color: white;
+  border: none;
+  box-shadow:
+    0 5px 0 #2b5e3d,
+    0 8px 15px rgba(30, 80, 50, 0.25);
+  cursor: url("cursors/Link Select.cur"), auto;
+  transition: right 0.3s ease, transform 0.15s ease;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 30px 25px 25px;
+  z-index: 1000;
+  color: #183a2a;
+  background: linear-gradient(135deg,#e6f4ec 0%,#b6d8c2 55%,#78aa8a 100%);
+  border-left: 2px solid #9abbab;
+  box-shadow: -8px 0 25px rgba(30, 80, 50, 0.2);
+  /* Hidden */
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+/* Sidebar open */
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar button {
+  padding: 8px;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(40, 96, 60, 0.1);
+  border-radius: 8px;
+  color: #28603CD0;
+  cursor: url("cursors/Link Select.cur"), auto;
+}
+
+.sidebar h2 {
+  margin: 0;
+  color: #28603c;
+  line-height: 45px;
 }
 
 /* Other */
